@@ -3,14 +3,12 @@ package com.razorpay.Service;
 import com.razorpay.Order;
 import com.razorpay.RazorpayClient;
 import com.razorpay.RazorpayException;
-import com.razorpay.model.Orders;
 import com.razorpay.repository.OrderRepository;
 import jakarta.annotation.PostConstruct;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Service
 public class OrderService {
@@ -30,7 +28,7 @@ public class OrderService {
         this.razorpayClient = new RazorpayClient(razorpayId,razorpaySeceret);
     }
 
-    public Order createOrder(Orders order) throws RazorpayException {
+    public Order createOrder(Order order) throws RazorpayException {
 
         JSONObject json = new JSONObject();
         json.put("amount",order.getAmount() * 100);
