@@ -33,7 +33,7 @@ public class OrderService {
     public Order createOrder(Orders order) throws RazorpayException {
 
         JSONObject json = new JSONObject();
-        json.put("amount",order.getAmount());
+        json.put("amount",order.getAmount() * 100);
         json.put("currency","INR");
         json.put("recept",order.getEmail());
 
